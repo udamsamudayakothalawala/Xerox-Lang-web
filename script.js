@@ -27,13 +27,5 @@ platformButtons.forEach((button) => {
 
 downloadButton.addEventListener('click', () => {
 	const selectedDownload = document.querySelector('.platform.active');
-	const downloadName = selectedDownload.dataset.download;
-	const readme = `Xerox 0.0.1\nDownload: ${downloadName}\nPlatform: Windows x64\n\nVisit the Xerox project page for the latest release.`;
-	const file = new Blob([readme], { type: 'text/plain' });
-	const url = URL.createObjectURL(file);
-	const link = document.createElement('a');
-	link.href = url;
-	link.download = selectedDownload.dataset.file;
-	link.click();
-	URL.revokeObjectURL(url);
+	window.open(selectedDownload.dataset.url, '_blank', 'noopener,noreferrer');
 });
